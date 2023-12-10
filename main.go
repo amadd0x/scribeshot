@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -33,7 +34,7 @@ func main() {
 
 	for _, block := range resp.Blocks {
 		if *block.BlockType == "LINE" {
-			println(*block.Text)
+			fmt.Println(*block.Text)
 		}
 	}
 }

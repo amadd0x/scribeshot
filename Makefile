@@ -1,5 +1,5 @@
 NAME=scribeshot
-VERSION=v0.1.0
+VERSION=v0.1.1
 
 build: clean
 	CGO_ENABLED=0 go build -o build/$(NAME)
@@ -9,3 +9,6 @@ clean:
 
 run: build
 	./build/$(NAME)
+
+release:
+	goreleaser release --clean
