@@ -19,7 +19,6 @@
 
 # Go workspace file
 go.work
-shell.nix
 test.png
 dist/
 build
