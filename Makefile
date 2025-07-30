@@ -1,8 +1,11 @@
-NAME=scribeshot
-VERSION=v0.1.1
+# Makefile
+GO_FILE := main.go
+NAME := $(shell grep "appName" $(GO_FILE) | head -1 | awk -F'"' '{print $$2}')
+VERSION := "v$(shell grep "appVersion" $(GO_FILE) | head -1 | awk -F'"' '{print $$2}')"
 
 build: clean
-	CGO_ENABLED=0 go build -o build/$(NAME)
+	@echo "Building $(NAME) version: $(VERSION)"
+	go build -ldflags "-X main.AppVersion=$(VERSION)" -o build/$(NAME)
 
 clean:
 	rm -rf build
