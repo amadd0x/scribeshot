@@ -47,12 +47,8 @@ scribeshot --version
 ### Build from Source; Add to path
 
 ```bash
-go mod init scribeshot
-go get github.com/aws/aws-sdk-go
-go build -o scribeshot main.go
-
-chmod +x ./scribeshot
-sudo mv ./scribeshot /usr/bin/
+make build
+sudo mv ./build/scribeshot /usr/bin/
 which scribeshot
 ```
 
